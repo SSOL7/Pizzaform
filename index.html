@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+<body>
+        <form>
+            <input type="hidden" name="difficulty" value="1" />
+            
+                <legend style="font-size: larger;"><strong>Contact Information</strong></legend>
+                    <label for="firstnameinput">First Name</label>
+                    <input type="text" id="firstnameinput" name="FirstName_tf" /><br>
+            
+                
+                    <h1>Size</h1>
+                        <input type="radio" id="smallsize" name="Size_rg" value="6.99" onclick="calculateSize(this);">
+                        <label for="smallsize">Small 6.99</label><br>
+                        <input type="radio" id="mediumsize" name="Size_rg" value="7.99" onclick="calculateSize(this);">  
+                        <label for="mediumsize">Medium 7.99</label><br>
+                        <input type="radio" id="largesize" name="Size_rg" value="11.99" onclick="calculateSize(this);"> 
+                        <label for="largesize">Large 11.99</label>
+                
+                    <h2>Toppings, cheese and minced meat are included initially</h2>
+                        <input type="checkbox" id="anchovies" name="Anchovies_cb" value="yes" onclick="toppingOptionPrice(this);">
+                        <label for="anchovies">Anchovies 1€</label><br>
+                        <input type="checkbox" id="doublecheese" name="DoubleCheese_cb" value="yes" onclick="toppingOptionPrice(this);">
+                        <label for="doublecheese">Double Cheese 1€</label><br>
+                        <input type="checkbox" id="pepperoni" name="Pepperoni_cb" value="yes" onclick="toppingOptionPrice(this);">
+                        <label for="pepperoni">Pepperoni 1€</label><br>
+                        <input type="checkbox" id="mushrooms" name="Mushroom_cb" value="yes" onclick="toppingOptionPrice(this);">
+                        <label for="mushrooms">Mushrooms</label><br>
+                
+            
+            
+                    <label for="subtotal">SubTotal $:</label>
+                    <input type="text" id="subtotal" name="SubTotal_tb" readonly><br>
+                    <label for="pstToPay">PST $:</label>
+                    <input type="text" id="pstToPay" name="PST_tb" readonly><br>
+            
+        </form>
+</body>
+
+<script>
+    function calculateSize(size) {
+        var size = size.value;
+        var subtotal = document.getElementById("subtotal");
+        subtotal.value = size;
+        // calculateGST();
+        // calculatePST();
+        // calculateTotal();
+    }
+    function toppingOptionPrice(topping) {
+        var topping = topping.value;
+        var subtotal = document.getElementById("subtotal");
+        var toppingPrice = 1;
+        if (topping == "yes") {
+            subtotal.value = parseInt(subtotal.value) + toppingPrice;
+        } else {
+            subtotal.value = parseInt(subtotal.value) - toppingPrice;
+        }
+    }
+
+    function calculateTotal() {
+        var subtotal = document.getElementById("subtotal");
+        var gst = document.getElementById("gstToPay");
+        var pst = document.getElementById("pstToPay");
+        var total = document.getElementById("total");
+        total.value = (parseInt(subtotal.value) + parseInt(gst.value) + parseInt(pst.value)).toFixed(2);
+    }
+
+
+</script>
+
+
+</html>

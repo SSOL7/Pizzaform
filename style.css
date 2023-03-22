@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: darkgoldenrod;
+}
+
+form {
+    display: grid;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 1rem;
+}
+
+input {
+    width: 20%;
+}
