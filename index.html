@@ -13,8 +13,7 @@
             
                 <legend style="font-size: larger;"><strong>Contact Information</strong></legend>
                     <label for="firstnameinput">First Name</label>
-                    <input type="text" id="firstnameinput" name="FirstName_tf" /><br>
-            
+                    <input type="text" id="firstnameinput" name="FirstName"/><br>
                 
                     <h1>Size</h1>
                         <input type="radio" id="smallsize" name="Size_rg" value="6.99" onclick="calculateSize(this);">
@@ -34,44 +33,54 @@
                         <input type="checkbox" id="mushrooms" name="Mushroom_cb" value="yes" onclick="toppingOptionPrice(this);">
                         <label for="mushrooms">Mushrooms</label><br>
                 
-            
-            
                     <label for="subtotal">SubTotal $:</label>
                     <input type="text" id="subtotal" name="SubTotal_tb" readonly><br>
-                    <label for="pstToPay">PST $:</label>
-                    <input type="text" id="pstToPay" name="PST_tb" readonly><br>
             
         </form>
 </body>
 
 <script>
-    function calculateSize(size) {
-        var size = size.value;
-        var subtotal = document.getElementById("subtotal");
-        subtotal.value = size;
-        // calculateGST();
-        // calculatePST();
-        // calculateTotal();
-    }
-    function toppingOptionPrice(topping) {
-        var topping = topping.value;
-        var subtotal = document.getElementById("subtotal");
-        var toppingPrice = 1;
-        if (topping == "yes") {
-            subtotal.value = parseInt(subtotal.value) + toppingPrice;
-        } else {
-            subtotal.value = parseInt(subtotal.value) - toppingPrice;
-        }
-    }
 
-    function calculateTotal() {
-        var subtotal = document.getElementById("subtotal");
-        var gst = document.getElementById("gstToPay");
-        var pst = document.getElementById("pstToPay");
-        var total = document.getElementById("total");
-        total.value = (parseInt(subtotal.value) + parseInt(gst.value) + parseInt(pst.value)).toFixed(2);
-    }
+    
 
+
+
+    // function calculateSize(size) {
+    //     var size = size.value;
+    //     var subtotal = document.getElementById("subtotal");
+    //     subtotal.value = size;
+    // }
+    // function toppingOptionPrice(topping) {
+    //     var topping = topping.value;
+    //     var subtotal = document.getElementById("subtotal");
+    //     var toppingPrice = 1;
+    //     if (topping == "yes") {
+    //         subtotal.value = parseInt(subtotal.value) + toppingPrice;
+    //     } else {
+    //         subtotal.value = parseInt(subtotal.value) - toppingPrice;
+    //     }
+    // }
+
+    // function calculateTotal() {
+    //     var subtotal = document.getElementById("subtotal");
+    //     var gst = document.getElementById("gstToPay");
+    //     var pst = document.getElementById("pstToPay");
+    //     var total = document.getElementById("total");
+    //     total.value = (parseInt(subtotal.value) + parseInt(gst.value) + parseInt(pst.value)).toFixed(2);
+    // }
+
+    // // render selected toppings on the DOM
+    // function renderToppings() {
+    //     var toppings = document.getElementsByName("Toppings_cb");
+    //     var toppingsList = document.getElementById("toppingsList");
+    //     var toppingsListHTML = "";
+    //     for (var i = 0; i < toppings.length; i++) {
+    //         if (toppings[i].checked) {
+    //             toppingsListHTML += "<li>" + toppings[i].value + "</li>";
+    //         }
+    //     }
+    //     toppingsList.innerHTML = toppingsListHTML;
+    // }
 
 </script>
 

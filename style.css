@@ -6,7 +6,11 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: darkgoldenrod;
+    background-image: url('pizza.jpg');
+    background-size: cover;
+    background-position: center;
+    float: right;
+    color: white;
 }
 
 form {
